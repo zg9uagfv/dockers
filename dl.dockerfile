@@ -121,6 +121,23 @@ RUN apt-get install -y --no-install-recommends \
     libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libgtk2.0-dev \
     liblapacke-dev checkinstall -y
 
+#Update cmake
+RUN cd /usr/local/src \
+    && wget https://github.com/Kitware/CMake/archive/v3.10.2.tar.gz \
+    && tar xvf v3.10.2.tar.gz \
+    && cd CMake-3.10.2 \
+    && ./configure && make -j8 && make install \
+    && cd ../ && rm -rf CMake-3.10.2
+
+#Update protobuf
+RUN apt-get install autoconf automake libtool curl make g++ unzip
+RUN cd /usr/local/src \
+    && wget https://github.com/google/protobuf/archive/v3.5.1.tar.gz \
+    && tar xvf v3.5.1.tar.gz \
+    && cd protobuf-3.5.1 \
+    && ./autogen.sh && ./configure && make -j8 && make install \
+    && ldconfig && cd ../ && rm -rf protobuf-3.5.1
+
 #Install Python libraries
 RUN apt-get install python-dev python-pip python3-dev python3-pip -y
 # Get source from github
@@ -132,6 +149,7 @@ RUN cd /usr/local/src/opencv && mkdir build && cd build && \
           -D CMAKE_INSTALL_PREFIX=/usr/local \
           -D PYTHON_DEFAULT_EXECUTABLE=$(which python3) \
           -D BUILD_TESTS=OFF \
+          -D BUILD_TIFF=ON \
           -D BUILD_PERF_TESTS=OFF \
           -D INSTALL_C_EXAMPLES=ON \
           -D INSTALL_PYTHON_EXAMPLES=ON \
@@ -144,7 +162,8 @@ RUN cd /usr/local/src/opencv && mkdir build && cd build && \
           -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
           -D BUILD_EXAMPLES=OFF .. && \
     make -j"$(nproc)" && \
-    make install
+    make install && \
+    rm -rf ./opencv ./opencv_contrib
 
 #
 # Caffe
