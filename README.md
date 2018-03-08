@@ -1,5 +1,7 @@
 # ubuntu的docker操作
 
+参考:http://blog.csdn.net/bxzhu/article/details/73253032
+
 ## 删除容器
 1.停止所有的container
 
