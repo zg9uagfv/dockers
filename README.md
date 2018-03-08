@@ -32,7 +32,7 @@ sudo docker pull registry
 
 2.默认情况下，会将仓库存放于容器内的/var/lib/registry目录下，这样如果容器被删除，则存放于容器中的镜像也会丢失.所以我们一般情况下会指定本地一个目录（刚刚创建的/home/docker_registry）挂载到容器内的/var/lib/registry下，如下：
 
-docker run -d -p 5000:5000 -v /home/docker_registry: /var/lib/registry registry 
+docker run -d -p 5000:5000 -v /xxx/xxx/docker_registry:/var/lib/registry registry 
 
 3.把自己镜像的打tag并上传到本地仓库。
 
