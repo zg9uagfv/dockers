@@ -46,6 +46,8 @@ sudo docker push 192.168.2.114:5000/busybox
 ## 提交变更
 
 1.先退出容器然后提交变更，类似于git的commit，只提交变化的部分
+
+
 sudo docker commit 3b09d0d9450(container) 192.168.2.114:5000/busybox(image)
 
 ## 备份迁移
