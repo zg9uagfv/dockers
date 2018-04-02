@@ -1,6 +1,8 @@
 # ubuntu的docker操作
 
-参考:http://blog.csdn.net/bxzhu/article/details/73253032
+1.  参考:http://blog.csdn.net/bxzhu/article/details/73253032
+
+2.  参考:https://blogs.technet.microsoft.com/machinelearning/2018/03/15/demystifying-docker-for-data-scientists-a-docker-tutorial-for-your-deep-learning-projects/
 
 ## 安装
 https://docs.docker.com/install/
