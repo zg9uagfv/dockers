@@ -58,7 +58,7 @@ sudo docker commit 3b09d0d9450(container) 192.168.2.114:5000/busybox(image)
 ## 备份迁移
 1.通过docker save命令，将镜像保存为tar文件
 
-sudo docker save -o ~/xxx.tar xxxx/xxxx
+sudo docker save -o ~/xxx.tar xxxx/xxxx(或者IMAGE ID)
 
 2.把xxx.tar贝到其他容器环境中，并加载
 
