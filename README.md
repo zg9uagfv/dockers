@@ -64,3 +64,5 @@ sudo docker save -o ~/xxx.tar xxxx/xxxx(或者IMAGE ID)
 
 sudo docker load -i xxx.tar
 
+## 执行程序
+sudo docker run -p 9999:9999 d09603a6f3df sh -c 'cd /opt/&&python3 ./main.py'
