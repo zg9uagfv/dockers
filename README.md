@@ -66,3 +66,6 @@ sudo docker load -i xxx.tar
 
 ## 执行程序
 sudo docker run -p 9999:9999 d09603a6f3df sh -c 'cd /opt/&&python3 ./main.py'
+
+### 使用GPU
+sudo docker run -it --gpus all 9eafd3bbbe74(image id)
